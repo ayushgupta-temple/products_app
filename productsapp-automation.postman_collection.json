@@ -1,0 +1,117 @@
+{
+  "info": {
+    "_postman_id": "2604598c-6152-4396-a4ac-b5d6f564cecd",
+    "name": "productsapp-automation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53651296"
+  },
+  "item": [
+    {
+      "name": "Get All Products",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();\r",
+              "\r",
+              "pm.test(\"response to be 200 OK\", () => {\r",
+              "    pm.response.to.have.status(200);\r",
+              "})\r",
+              "\r",
+              "pm.test(\"value of [0].Id to be 1\", () => {\r",
+              "    pm.expect(jsonData[0].id).to.eql(1);\r",
+              "})\r",
+              "\r",
+              "pm.test(\"value of [0].name to be Tomato Soup\", () => {\r",
+              "    pm.expect(jsonData[0].name).to.eql(\"Tomato Soup\");\r",
+              "})\r",
+              "\r",
+              "pm.test(\"value of [0].category to be Groceries\", () => {\r",
+              "    pm.expect(jsonData[0].category).to.eql(\"Groceries\");\r",
+              "})\r",
+              "\r",
+              "pm.test(\"value of [0].price to be 1\", () => {\r",
+              "    pm.expect(jsonData[0].price).to.eql(1);\r",
+              "})"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5243/api/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5243",
+          "path": [
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Single Product",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();\r",
+              "\r",
+              "pm.test(\"response to be 200 OK\", () => {\r",
+              "    pm.response.to.have.status(200);\r",
+              "})\r",
+              "\r",
+              "pm.test(\"value of id to be 1\", () => {\r",
+              "    pm.expect(jsonData.id).to.eql(1);\r",
+              "})\r",
+              "\r",
+              "pm.test(\"value of name to be Tomato Soup\", () => {\r",
+              "    pm.expect(jsonData.name).to.eql(\"Tomato Soup\");\r",
+              "})\r",
+              "\r",
+              "pm.test(\"value of category to be Groceries\", () => {\r",
+              "    pm.expect(jsonData.category).to.eql(\"Groceries\");\r",
+              "})\r",
+              "\r",
+              "pm.test(\"value of price to be 1\", () => {\r",
+              "    pm.expect(jsonData.price).to.eql(1);\r",
+              "})"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5243/api/products/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5243",
+          "path": [
+            "api",
+            "products",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
